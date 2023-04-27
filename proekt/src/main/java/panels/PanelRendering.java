@@ -76,13 +76,13 @@ public class PanelRendering extends GridPanel {
         // вызов обработчика предка
         super.accept(e);
         // если событие - это клик мышью
-        if (e instanceof EventMouseButton ee) {
+        /*if (e instanceof EventMouseButton ee) {
             // если последнее положение мыши сохранено и курсор был внутри
             if (lastMove != null && lastInside) {
                 // обрабатываем клик по задаче
                 task.click(lastWindowCS.getRelativePos(lastMove), ee.getButton());
             }
-        }
+        }*/
     }
 
     /**
@@ -93,7 +93,7 @@ public class PanelRendering extends GridPanel {
      */
     @Override
     public void paintImpl(Canvas canvas, CoordinateSystem2i windowCS) {
-        task.paint(canvas, windowCS);
+        //task.paint(canvas, windowCS);
     }
 
     /**

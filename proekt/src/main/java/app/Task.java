@@ -63,7 +63,7 @@ public class Task {
      * @param canvas   область рисования
      * @param windowCS СК окна
      */
-    public void paint(Canvas canvas, CoordinateSystem2i windowCS) {
+   /* public void paint(Canvas canvas, CoordinateSystem2i windowCS) {
         // Сохраняем последнюю СК
         lastWindowCS = windowCS;
 
@@ -81,7 +81,7 @@ public class Task {
             }
         }
         canvas.restore();
-    }
+    }*/
 
     /**
      * Добавить точку
@@ -89,11 +89,11 @@ public class Task {
      * @param pos      положение
      * @param pointSet множество
      */
-    public void addPoint(Vector2d pos, Point.PointSet pointSet) {
+    /*public void addPoint(Vector2d pos, Point.PointSet pointSet) {
         Point newPoint = new Point(pos, pointSet);
         points.add(newPoint);
         PanelLog.info("точка " + newPoint + " добавлена в " + newPoint.getSetName());
-    }
+    }*/
 
 
     /**
@@ -102,7 +102,7 @@ public class Task {
      * @param pos         положение мыши
      * @param mouseButton кнопка мыши
      */
-    public void click(Vector2i pos, MouseButton mouseButton) {
+   /* public void click(Vector2i pos, MouseButton mouseButton) {
         if (lastWindowCS == null) return;
         // получаем положение на экране
         Vector2d taskPos = ownCS.getCoords(pos, lastWindowCS);
@@ -113,7 +113,7 @@ public class Task {
         } else if (mouseButton.equals(MouseButton.SECONDARY)) {
             addPoint(taskPos, Point.PointSet.SECOND_SET);
         }
-    }
+    }*/
 
 
 }
