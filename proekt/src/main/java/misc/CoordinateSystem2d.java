@@ -76,8 +76,7 @@ public class CoordinateSystem2d {
      * @return случайные координаты внутри СК
      */
     public Vector2d getRandomCoords() {
-        Vector2d r = Vector2d.rand(min, max);
-        return r;
+        return Vector2d.rand(min, max);
     }
 
     /**
@@ -149,9 +148,7 @@ public class CoordinateSystem2d {
      */
     public Vector2d getCoords(int x, int y, CoordinateSystem2i coordinateSystem) {
         return new Vector2d(
-                (x - coordinateSystem.getMin().x) * size.x / (coordinateSystem.getSize().x - 1) + min.x,
-                (y - coordinateSystem.getMin().y) * size.y / (coordinateSystem.getSize().y - 1) + min.y
-        );
+                (x - coordinateSystem.getMin().x) * size.x / (coordinateSystem.getSize().x - 1) + min.x, (1.0 - 2.0 * y / (double)coordinateSystem.getMax().y) * max.y);
     }
 
     /**

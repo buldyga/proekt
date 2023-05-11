@@ -155,7 +155,7 @@ public class CoordinateSystem2i {
     public Vector2i getCoords(double x, double y, CoordinateSystem2d coordinateSystem) {
         return new Vector2i(
                 (int) ((x - coordinateSystem.getMin().x) * (size.x - 1) / coordinateSystem.getSize().x + min.x),
-                (int) ((y - coordinateSystem.getMin().y) * (size.y - 1) / coordinateSystem.getSize().y + min.y)
+                size.y - (int) ((y - coordinateSystem.getMin().y) * (size.y - 1) / coordinateSystem.getSize().y + min.y)
         );
     }
 

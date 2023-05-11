@@ -6,6 +6,7 @@ import io.github.humbleui.jwm.skija.EventFrameSkija;
 import io.github.humbleui.skija.Canvas;
 import io.github.humbleui.skija.Surface;
 import misc.CoordinateSystem2i;
+import misc.Vector2d;
 import panels.PanelControl;
 import panels.PanelHelp;
 import panels.PanelLog;
@@ -224,6 +225,10 @@ public class Application implements Consumer<Event> {
         panelControl.paint(canvas, windowCS);
         panelLog.paint(canvas, windowCS);
         panelHelp.paint(canvas, windowCS);
+
+
+
+
         canvas.restore();
     }
 }

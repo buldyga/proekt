@@ -60,7 +60,7 @@ public class PanelControl extends GridPanel {
                 window, false, backgroundColor, PANEL_PADDING,
                 6, 7, 0, 3, 3, 1, "Добавить новую\nточку",
                 true, true);
-        /*addToFirstSet.setOnClick(() -> {
+        /*addPoint.setOnClick(() -> {
             // если числа введены верно
             if (!xField.hasValidDoubleValue()) {
                 PanelLog.warning("X координата введена неверно");
@@ -68,26 +68,14 @@ public class PanelControl extends GridPanel {
                 PanelLog.warning("Y координата введена неверно");
             else
                 PanelRendering.task.addPoint(
-                        new Vector2d(xField.doubleValue(), yField.doubleValue()), Point.PointSet.FIRST_SET
-                );
+                        new Vector2d(xField.doubleValue(), yField.doubleValue()));
         });*/
         buttons.add(addPoint);
 
-        Button addRandomPoint = new Button(
-                window, false, backgroundColor, PANEL_PADDING,
-                6, 7, 3, 3, 3, 1, "Добавить случайную\nточку",
-                true, true);
+        Button addRandomPoint = new Button
+        ( window, false, backgroundColor, PANEL_PADDING, 6, 7, 3, 3, 3, 1, "Добавить случайную\nточку", true, true);
         /*addRandomPoint.setOnClick(() -> {
-            // если числа введены верно
-            if (!xField.hasValidDoubleValue()) {
-                PanelLog.warning("X координата введена неверно");
-            } else if (!yField.hasValidDoubleValue())
-                PanelLog.warning("Y координата введена неверно");
-            else {
-                PanelRendering.task.addPoint(
-                        new Vector2d(xField.doubleValue(), yField.doubleValue()), Point.PointSet.SECOND_SET
-                );
-            }
+            PanelRendering.task.addRandomPoint();
         });*/
         buttons.add(addRandomPoint);
 
@@ -101,18 +89,18 @@ public class PanelControl extends GridPanel {
                 FIELD_TEXT_COLOR, true);
         inputs.add(cntField);
 
-        Button addTriangles = new Button(
+        Button addRandomTriangles = new Button(
                 window, false, backgroundColor, PANEL_PADDING,
                 6, 7, 3, 4, 3, 1, "Добавить\nслучайные треугольники",
                 true, true);
-        /*addTriangles.setOnClick(() -> {
+        /*addRandomTriangles.setOnClick(() -> {
             // если числа введены верно
             if (!cntField.hasValidIntValue()) {
-                PanelLog.warning("кол-во точек указано неверно");
+                PanelLog.warning("кол-во треугольников указано неверно");
             } else
-                PanelRendering.task.addRandomPoints(cntField.intValue());
+                PanelRendering.task.addRandomTriangles(cntField.intValue());
         });*/
-        buttons.add(addTriangles);
+        buttons.add(addRandomTriangles);
 
         // управление
         Button load = new Button(
@@ -129,7 +117,7 @@ public class PanelControl extends GridPanel {
                 window, false, backgroundColor, PANEL_PADDING,
                 6, 7, 3, 5, 3, 1, "Сохранить",
                 true, true);
-        save.setOnClick(PanelRendering::save);
+        //save.setOnClick(PanelRendering::save);
         buttons.add(save);
 
         Button clear = new Button(
@@ -144,17 +132,9 @@ public class PanelControl extends GridPanel {
                 6, 7, 3, 6, 3, 1, "Решить",
                 true, true);
         /*solve.setOnClick(() -> {
-            if (!PanelRendering.task.isSolved()) {
-                PanelRendering.task.solve();
-                String s = "Задача решена\n" +
-                        "Пересечений: " + PanelRendering.task.getCrossed().size() / 2 + "\n" +
-                        "Отдельных точек: " + PanelRendering.task.getSingle().size();
 
-                PanelLog.success(s);
-                solve.text = "Сбросить";
-            } else {
-                cancelTask();
-            }
+                PanelRendering.task.solve();
+
             window.requestFrame();
         });*/
         buttons.add(solve);

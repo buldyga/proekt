@@ -1,6 +1,5 @@
 package misc;
 
-
 import java.util.concurrent.ThreadLocalRandom;
 
 /**
@@ -90,6 +89,7 @@ public class Vector2d {
     public static Vector2d mul(Vector2d v, double a) {
         return new Vector2d(v.x * a, v.y * a);
     }
+
 
     /**
      * Получить случайное значение в заданном диапазоне [min,max)

@@ -2,6 +2,7 @@ package panels;
 
 import app.Point;
 import app.Task;
+import app.Triangle;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.github.humbleui.jwm.Event;
 import io.github.humbleui.jwm.EventMouseButton;
@@ -47,21 +48,15 @@ public class PanelRendering extends GridPanel {
     ) {
         super(window, drawBG, color, padding, gridWidth, gridHeight, gridX, gridY, colspan, rowspan);
 
-        // ОСК от [-10.0,-10.0] до [10.0,10.0]
         CoordinateSystem2d cs = new CoordinateSystem2d(
-                new Vector2d(-10.0, -10.0), new Vector2d(10.0, 10.0)
+                new Vector2d(-30.0, -30.0), new Vector2d(30.0, 30.0)
         );
 
         // создаём массив случайных точек
-        ArrayList<Point> points = new ArrayList<>();
-        /*for (int i = 0; i < 10; i++) {
-            // получаем случайное множество
-            Point.PointSet pointSet = ThreadLocalRandom.current().nextBoolean() ?
-                    Point.PointSet.FIRST_SET : Point.PointSet.SECOND_SET;
-            // добавляем точку в случайном месте ОСК в указанное множество
-            points.add(new Point(cs.getRandomCoords(), pointSet));
-        }*/
-        task = new Task(cs, points);
+        ArrayList<Vector2d> points = new ArrayList<>();
+        ArrayList<Triangle> triangles = new ArrayList<>();
+
+        task = new Task(cs, points, triangles);
 
     }
 
@@ -76,13 +71,13 @@ public class PanelRendering extends GridPanel {
         // вызов обработчика предка
         super.accept(e);
         // если событие - это клик мышью
-        /*if (e instanceof EventMouseButton ee) {
+        if (e instanceof EventMouseButton ee) {
             // если последнее положение мыши сохранено и курсор был внутри
             if (lastMove != null && lastInside) {
                 // обрабатываем клик по задаче
-                task.click(lastWindowCS.getRelativePos(lastMove), ee.getButton());
+               // task.click(lastWindowCS.getRelativePos(lastMove), ee.getButton());
             }
-        }*/
+        }
     }
 
     /**
@@ -93,7 +88,7 @@ public class PanelRendering extends GridPanel {
      */
     @Override
     public void paintImpl(Canvas canvas, CoordinateSystem2i windowCS) {
-        //task.paint(canvas, windowCS);
+        task.paint(canvas, windowCS);
     }
 
     /**
