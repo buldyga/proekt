@@ -1,4 +1,4 @@
-/*import app.Point;
+import app.Point;
 import app.Task;
 import app.Triangle;
 import misc.CoordinateSystem2d;
