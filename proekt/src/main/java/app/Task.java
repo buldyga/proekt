@@ -42,6 +42,7 @@ public class Task {
     private boolean isSolved;
     private Polygon Solution;
     private Vector2i solutionT;
+    private double max_area;
     /**
      * Размер точки
      */
@@ -64,6 +65,7 @@ public class Task {
         this.isSolved = false;
         this.Solution = null;
         this.solutionT = null;
+        this.max_area = 0.0;
     }
 
     /**
@@ -115,6 +117,7 @@ public class Task {
                 }
             }
         }
+
         canvas.restore();
     }
 
@@ -144,13 +147,13 @@ public class Task {
         PanelLog.info("добавлено " + cnt + " случайных треугольников");
     }
 
-    /*public void click(Vector2i pos, MouseButton mouseButton)
+    public void click(Vector2i pos, MouseButton mouseButton)
     {
         if (lastWindowCS == null) return;
         // получаем положение на экране
         Vector2d taskPos = ownCS.getCoords(pos, lastWindowCS);
         addPoint(taskPos);
-    }*/
+    }
 
     Vector2d linesIntersection(Vector2d A, Vector2d B, Vector2d C, Vector2d D)
     {
@@ -201,7 +204,7 @@ public class Task {
 
     public void solve()
     {
-        double max_area = 0.0;
+        max_area = 0.0;
         Polygon maxPoly = null;
         Vector2i maxIndx = new Vector2i(0, 1);
         for (int i = 0; i < triangles.size(); i++)
@@ -232,6 +235,10 @@ public class Task {
             PanelLog.info("Максимальная площадь пересечения равна " + String.format("%.2f", max_area).replace(",", "."));
         else
             PanelLog.info("Никакие два треугольника не имеют общей площади");
+    }
+    public double getS()
+    {
+        return max_area;
     }
 
     public void clear()

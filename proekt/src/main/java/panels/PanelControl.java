@@ -60,7 +60,7 @@ public class PanelControl extends GridPanel {
                 window, false, backgroundColor, PANEL_PADDING,
                 6, 7, 0, 3, 3, 1, "Добавить новую\nточку",
                 true, true);
-        /*addPoint.setOnClick(() -> {
+        addPoint.setOnClick(() -> {
             // если числа введены верно
             if (!xField.hasValidDoubleValue()) {
                 PanelLog.warning("X координата введена неверно");
@@ -69,14 +69,14 @@ public class PanelControl extends GridPanel {
             else
                 PanelRendering.task.addPoint(
                         new Vector2d(xField.doubleValue(), yField.doubleValue()));
-        });*/
+        });
         buttons.add(addPoint);
 
         Button addRandomPoint = new Button
         ( window, false, backgroundColor, PANEL_PADDING, 6, 7, 3, 3, 3, 1, "Добавить случайную\nточку", true, true);
-        /*addRandomPoint.setOnClick(() -> {
+        addRandomPoint.setOnClick(() -> {
             PanelRendering.task.addRandomPoint();
-        });*/
+        });
         buttons.add(addRandomPoint);
 
         // случайное добавление
@@ -93,13 +93,13 @@ public class PanelControl extends GridPanel {
                 window, false, backgroundColor, PANEL_PADDING,
                 6, 7, 3, 4, 3, 1, "Добавить\nслучайные треугольники",
                 true, true);
-        /*addRandomTriangles.setOnClick(() -> {
+        addRandomTriangles.setOnClick(() -> {
             // если числа введены верно
             if (!cntField.hasValidIntValue()) {
                 PanelLog.warning("кол-во треугольников указано неверно");
             } else
                 PanelRendering.task.addRandomTriangles(cntField.intValue());
-        });*/
+        });
         buttons.add(addRandomTriangles);
 
         // управление

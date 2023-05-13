@@ -1,18 +1,14 @@
 package app;
-
-
 import io.github.humbleui.skija.Canvas;
 import io.github.humbleui.skija.Paint;
 import misc.*;
 
 import java.util.ArrayList;
-
 public class Triangle
 {
     public Vector2d A;
     public Vector2d B;
     public Vector2d C;
-
     public ArrayList<Vector2d> vertices;
     public Triangle(Vector2d A, Vector2d B, Vector2d C)
     {
@@ -26,7 +22,6 @@ public class Triangle
         this.vertices = tmp;
         this.sortCw();
     }
-
     public Triangle(ArrayList<Vector2d> v)
     {
         this.vertices = v;
@@ -35,7 +30,6 @@ public class Triangle
         this.C = v.get(2);
         this.sortCw();
     }
-
     public void paint(Canvas canvas, CoordinateSystem2i winCS, CoordinateSystem2d trueCS, Paint p)
     {
         Vector2i winPosA = winCS.getCoords(A, trueCS);
@@ -45,7 +39,6 @@ public class Triangle
         canvas.drawLine((float) winPosB.x, (float) winPosB.y, (float) winPosC.x, (float) winPosC.y, p);
         canvas.drawLine((float) winPosC.x, (float) winPosC.y, (float) winPosA.x, (float) winPosA.y, p);
     }
-
     public void sortCw()
     {
         Vector2d c = Vector2d.subtract(C, A);
