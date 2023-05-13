@@ -56,8 +56,11 @@ public class PanelRendering extends GridPanel {
         ArrayList<Vector2d> points = new ArrayList<>();
         ArrayList<Triangle> triangles = new ArrayList<>();
 
-        task = new Task(cs, points, triangles);
 
+        task = new Task(cs, points, triangles);
+        triangles.add(new Triangle(new Vector2d(29, -28), new Vector2d(0, 27), new Vector2d(27, 0)));
+        for (int i = 0; i < 10; i++)
+            task.addRandomPoint();
     }
 
     /**
